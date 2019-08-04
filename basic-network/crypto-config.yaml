@@ -1,0 +1,40 @@
+#  - Dfarmadmin  = Single peer organization
+#    Uses the "Specs" to declare the peers instead of Template
+#  - Dfarmretail  = Another peer organization
+
+
+##### Orderer for acme
+OrdererOrgs:
+  - Name: Orderer
+    Domain: dfarmadmin.com
+    #EnableNodeOUs: true
+    Specs:
+      - Hostname: orderer
+      
+#### Peers for acme
+PeerOrgs:
+  # Peer configuration for ACME
+  - Name: Dfarmadmin
+    Domain: dfarmadmin.com
+    #EnableNodeOUs: true
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+
+  # Peer configuration for Budget
+  - Name: Dfarmretail
+    Domain: dfarmretail.com
+    #EnableNodeOUs: true
+    # Specs:
+    #   - Hostname: peer1
+    #     CommonName: peer1
+    # Users:
+    #   Count: 1
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+
+
